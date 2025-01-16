@@ -49,6 +49,17 @@ p,
 	line-height: 20px;
 }
 
+.text-special {
+	background: var(--main-color);
+	background: linear-gradient(to bottom, var(--main-color) 0%, var(--second-color) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.text-light {
+	font-weight: 400;
+}
+
 h1 {
 	font-family: var(--font-heading-family);
 	line-height: 1;
@@ -141,18 +152,15 @@ a {
   	}
 }
 
+svg {
+	display: block;
+}
+
 .page-width {
 	width: 100%;
 	max-width: var(--content-width);
 	margin: 0 auto;
 	padding: 0 40px;
-}
-
-.text-special {
-	background: var(--main-color);
-	background: linear-gradient(to bottom, var(--main-color) 0%, var(--second-color) 100%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
 }
 
 .input--transparent {
