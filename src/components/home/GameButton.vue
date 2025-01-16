@@ -1,5 +1,5 @@
 <template>
-    <RouterLink :to="game.url" class="game-button">
+    <RouterLink :to="game.url" class="game-button press-on-hover">
         <img :src="`/${game.icon}`">
         {{ game.name }}
     </RouterLink>

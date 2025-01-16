@@ -1,4 +1,7 @@
 <template>
-    <h1>Truco</h1>
-    <h1>{{ $route.fullPath }}</h1>
+    <WorkingMessage />
 </template>
+
+<script setup>
+    import WorkingMessage from '../shared/WorkingMessage.vue'
+</script>

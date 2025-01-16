@@ -11,6 +11,7 @@
 	--mobile-breakpoint: 680px;
 	--table-first-color: #fff;
 	--table-second-color: #f4f4f4;
+	--header-height: 48px;
 }
 
 html {
@@ -32,7 +33,7 @@ html {
 
 body {
 	position: relative;
-	background: #fff;
+	background: var(--gray-color-100);
 	overflow-x: hidden;
 }
 
@@ -40,8 +41,9 @@ body::-webkit-scrollbar {
   	display: none;
 }
 
-p {
-	font-weight: 500;
+p,
+.text {
+	font-weight: 700;
 	color: var(--text-color);
 	font-size: 1.6rem;
 	line-height: 20px;
@@ -52,15 +54,15 @@ h1 {
 	line-height: 1;
 	font-size: 2.4rem;
 	font-weight: 900;
+	background: var(--main-color);
+	background: linear-gradient(to bottom, var(--main-color) 0%, var(--second-color) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 
 	&.main-title {
 		font-size: 94px;
 		line-height: 77px;
 		text-align: center;
-		background: var(--main-color);
-		background: linear-gradient(to bottom, var(--main-color) 0%, var(--second-color) 100%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
 		padding-top: 20px;
 	}
 }
@@ -68,7 +70,7 @@ h1 {
 h2 {
 	font-family: var(--font-heading-family);
 	line-height: 1;
-	font-size: 3.2rem;
+	font-size: 4.8rem;
 	font-weight: 600;
 	color: var(--text-color);
 }
@@ -89,23 +91,41 @@ h4 {
 button {
 	cursor: pointer;
 	position: relative;
+	font-family: var(--font-body-family);
+	font-variant-numeric: lining-nums proportional-nums;
 	font-weight: 600;
 	font-size: 1.6rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 4rem;
-	padding: 0 2rem;
-	border-radius: 100px;
-	box-shadow: 4px 4px 16px 0px #3333331a;
-	background: #fff;
+	padding: 0;
 	border: none;
+	background: transparent;
 	color: var(--text-color);
 	transition: all 300ms ease;
+
+	&:hover {
+		color: var(--main-color);
+	}
 }
 
-.button:hover {
-  	transform: scale(1.05);
+.press-on-hover:hover {
+	transform: translateY(2px);
+}
+
+.button--primary {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+	padding: 0 20px;
+	height: 48px;
+	width: 100%;
+	border-radius: 10px;
+	font-size: 1.6rem;
+	font-weight: 700;
+	background-color: #fff;
+	box-shadow: 4px 4px 16px 0px #3333331a;
 }
 
 a {
@@ -115,10 +135,10 @@ a {
 	font-size: 1.6rem;
 	font-weight: 600;
 	position: relative;
-}
 
-a:hover {
-  	color: var(--main-color);
+	&:hover {
+		color: var(--main-color);
+  	}
 }
 
 .page-width {
@@ -126,4 +146,20 @@ a:hover {
 	max-width: var(--content-width);
 	margin: 0 auto;
 	padding: 0 40px;
+}
+
+.text-special {
+	background: var(--main-color);
+	background: linear-gradient(to bottom, var(--main-color) 0%, var(--second-color) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.input--transparent {
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	border: none;
+	outline: none;
+	background-color: transparent;
 }
