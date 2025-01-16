@@ -18,7 +18,7 @@
         right: 0;
         margin: auto;
         z-index: 10;
-        width: 100%;
+        width: calc(100% - 40px);
         max-width: 500px;
         height: max-content;
         background-color: #FFF;

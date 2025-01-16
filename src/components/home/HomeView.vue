@@ -34,6 +34,8 @@
         margin-top: auto;
         margin-bottom: 0;
         padding-bottom: 20px;
+        text-align: center;
+        white-space: nowrap;
     }
 </style>
 
