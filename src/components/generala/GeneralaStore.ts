@@ -5,6 +5,7 @@ import type { IGeneralaState, IGeneralaSets, IGeneralaPlayer } from "./GeneralaI
 class GeneralaStore {
     public state: IGeneralaState
     public computeds: any
+    private timeout: any = null
 
     constructor(baseState: IGeneralaState) {
         this.state = reactive(baseState)
@@ -24,7 +25,11 @@ class GeneralaStore {
 
         selectedPlayer.setTotal()
         this.setHighestTotal()
-        this.setPlayerWinner()
+        
+        clearTimeout(this.timeout)
+        this.timeout = setTimeout(() => {
+            this.setPlayerWinner()
+        }, 2000)
     }
 
     private setHighestTotal() {
@@ -100,7 +105,7 @@ const baseState: IGeneralaState = {
         full: ['', 30, 35, 'X'],
         poker: ['', 40, 45, 'X'],
         generala: ['', 50, 'X'],
-        doubleGenerala: ['', 100, 'X']
+        doubleGenerala: ['', 60, 100, 'X']
     },
     highestTotal: 0,
     playerWinner: undefined

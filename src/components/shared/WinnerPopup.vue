@@ -33,7 +33,7 @@
         border-radius: 10px;
         animation: fadeIn 0.3s ease-in-out both;
         opacity: 0;
-        transform: scale(0.8) translateY(-50px);
+        transform: scale(0.5) translateY(-100px);
 
         h2 {
             font-weight: 900;
@@ -58,7 +58,7 @@
     @keyframes fadeIn {
         from {
             opacity: 0;
-            transform: scale(0.8) translateY(-50px);
+            transform: scale(0.5) translateY(-100px);
         }
         to {
             opacity: 1;
