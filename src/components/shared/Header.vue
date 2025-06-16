@@ -24,14 +24,14 @@
         backLink: string
         showRefresh: boolean
         showAddPlayer: boolean
-        addPlayerEvent: string
+        addPlayerEvent?: string
         historyLink?: string
     }>()
 
     const refresh = () => location.reload()
 
     const addPlayer = () => {
-        window.dispatchEvent(new Event(props.addPlayerEvent))
+        window.dispatchEvent(new Event(props.addPlayerEvent ?? 'addPlayer'))
     }
 </script>
 
