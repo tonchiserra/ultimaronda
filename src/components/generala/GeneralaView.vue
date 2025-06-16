@@ -3,6 +3,7 @@
         :backLink="'/'"
         :showRefresh="true"
         :showAddPlayer="true"
+        :addPlayerEvent="'addPlayer::generala'"
         :historyLink="'/generala/history'"
     >
         GENERALA
@@ -56,64 +57,8 @@
 </script>
 
 <style scoped>
-    .game {
-        height: calc(100dvh - var(--header-height));
-        display: flex;
-        overflow-x: auto;
-    }
-
-    .default-column {
-        position: sticky;
-        top: 0;
-        left: 0;
-        z-index: 2;
-        
-        .block {
-            &:nth-child(odd) {
-                border-right: 2px solid var(--table-second-color);
-            }
-
-            &:nth-child(even) {
-                border-right: 2px solid var(--table-first-color);
-            }
-        }
-    }
-
     .column {
-        height: 100%;
-        display: grid;
         grid-template-rows: repeat(13, 1fr);
         width: calc(100dvw / 3);
-        min-width: 100px;
-    }
-
-    .block {
-        height: 100%;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0 5px;
-
-        &:nth-child(odd) {
-            background-color: var(--table-first-color);
-        }
-
-        &:nth-child(even) {
-            background-color: var(--table-second-color);
-        }
-
-        p {
-            text-align: center;
-        }
-
-        button {
-            height: 100%;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-        }
     }
 </style>

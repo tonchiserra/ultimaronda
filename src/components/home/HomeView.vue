@@ -43,6 +43,7 @@
     import GameButton from './GameButton.vue'
 
     const games = [
+        { name: 'Chinchón', icon: 'poker.svg', url: '/chinchon' },
         { name: 'Generala', icon: 'dice.svg', url: '/generala' },
         { name: 'Truco', icon: 'poker.svg', url: '/truco' }
     ]

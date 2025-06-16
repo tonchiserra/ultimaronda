@@ -20,17 +20,18 @@
     import UserPlus from '../../assets/UserPlus.vue'
     import Clock from '../../assets/Clock.vue'
 
-    defineProps<{
+    const props = defineProps<{
         backLink: string
         showRefresh: boolean
         showAddPlayer: boolean
+        addPlayerEvent: string
         historyLink?: string
     }>()
 
     const refresh = () => location.reload()
 
     const addPlayer = () => {
-        window.dispatchEvent(new Event('addPlayer'))
+        window.dispatchEvent(new Event(props.addPlayerEvent))
     }
 </script>
 
