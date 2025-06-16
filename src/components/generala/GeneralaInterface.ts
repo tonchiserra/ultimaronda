@@ -11,6 +11,7 @@ export interface IGeneralaPlayer {
     total:              number
     isWinning:          boolean
     setTotal():         void
+    setName(newName: string): void
 }
 
 export interface IGeneralaSets {

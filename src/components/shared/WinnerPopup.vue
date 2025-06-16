@@ -9,6 +9,17 @@
     <div class="winner-popup__overlay"></div>
 </template>
 
+<script setup lang="ts">
+    defineProps<{
+        playerWinner: string
+    }>()
+
+    const retryGame = () => {
+        location.reload()
+    }
+</script>
+
+
 <style scoped>
     .winner-popup {
         position: fixed;
@@ -66,13 +77,3 @@
         }
     }
 </style>
-
-<script setup lang="ts">
-    defineProps<{
-        playerWinner: string
-    }>()
-
-    const retryGame = () => {
-        location.reload()
-    }
-</script>

@@ -1,15 +1,16 @@
 import { reactive, computed } from "vue"
 import { GeneralaPlayer } from "./GeneralaPlayer"
 import type { IGeneralaState, IGeneralaSets, IGeneralaPlayer } from "./GeneralaInterface"
+import type { GameInterface } from "../shared/GameInterface"
 
-class GeneralaStore {
+class GeneralaStore implements GameInterface {
     public state: IGeneralaState
     public computeds: any
     private timeout: any = null
 
     constructor(baseState: IGeneralaState) {
         this.state = reactive(baseState)
-        window.addEventListener('addPlayer', this.addPlayer.bind(this))
+        window.addEventListener('addPlayer::generala', this.addPlayer.bind(this))
         this.createComputeds()
     }
 
@@ -32,7 +33,7 @@ class GeneralaStore {
         }, 2000)
     }
 
-    private setHighestTotal() {
+    public setHighestTotal() {
         this.state.highestTotal = Math.max(...this.state.players.map((player: any) => player.total))
 
         this.state.players.forEach((player: any) => {
@@ -41,11 +42,11 @@ class GeneralaStore {
         })
     }
 
-    private addPlayer() {
+    public addPlayer() {
         this.state.players.push(new GeneralaPlayer(`J${this.state.players.length + 1}`))
     }
 
-    private setPlayerWinner() {
+    public setPlayerWinner() {
         if(this.isGameFinished()) {
             const playersWinner = this.state.players.filter((player: any) => player.isWinning)
             this.state.playerWinner = !!playersWinner && playersWinner.length === 1 ? playersWinner[0].name : "EMPATE"
@@ -54,7 +55,7 @@ class GeneralaStore {
         }
     }
 
-    private isGameFinished() {
+    public isGameFinished() {
         let finished = true
         this.state.players.forEach((player: IGeneralaPlayer) => {
             Object.entries(player.sets).forEach(([_, value]) => {
@@ -65,7 +66,7 @@ class GeneralaStore {
         return finished
     }
 
-    private createComputeds() {
+    public createComputeds() {
         const playerWinner = computed(() => this.state.playerWinner)
 
         this.computeds = reactive({
@@ -73,7 +74,7 @@ class GeneralaStore {
         })
     }
 
-    private setHistory() {
+    public setHistory() {
         const history = JSON.parse(localStorage.getItem('ultima-ronda:generala') ?? '[]')
         history.push({
             players: this.state.players,
