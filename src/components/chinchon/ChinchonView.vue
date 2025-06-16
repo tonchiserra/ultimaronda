@@ -40,7 +40,7 @@
 <style scoped>
     .column {
         width: 100%;
-        min-width: 70px;
+        min-width: 100px;
         display: flex;
         flex-direction: column;
     }
