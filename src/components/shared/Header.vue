@@ -45,6 +45,10 @@
         width: 100%;
         background-color: #fff;
         border-bottom: 1px solid var(--gray-color-100);
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 999;
 
         h1 {
             text-align: center;

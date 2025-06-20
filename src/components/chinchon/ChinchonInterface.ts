@@ -9,12 +9,14 @@ export interface IChinchonPlayer {
     points:             IChinchonPoints[]
     total:              number
     isLoser:            boolean
+    madeChinchon:       boolean
     setTotal: (newPoints: number) => void
     setName: (newName: string) => void
     setNewPoint: (newPoint: number) => void
+    setMadeChinchon: () => void
 }
 
 export interface IChinchonPoints {
-    point: number
     total: number
+    point: number | 'Chinchon'
 }

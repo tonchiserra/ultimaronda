@@ -7,6 +7,7 @@ export class ChinchonPlayer implements IChinchonPlayer {
     public total: number
     public points: IChinchonPoints[]
     public isLoser: boolean
+    public madeChinchon: boolean
 
     constructor(playerName: string) {
         this.name = playerName ?? 'Jugador'
@@ -14,6 +15,7 @@ export class ChinchonPlayer implements IChinchonPlayer {
         this.total = 0
         this.points = []
         this.isLoser = false
+        this.madeChinchon = false
     }
 
     setNewPoint(newPoint: number): void {
@@ -26,6 +28,12 @@ export class ChinchonPlayer implements IChinchonPlayer {
         this.newPoint = undefined
 
         this.isLoser = this.total > 100
+        chinchonStore.setPlayerWinner()
+    }
+
+    setMadeChinchon() {
+        this.madeChinchon = true
+        this.points.push({ point: 'Chinchon', total: this.total })
         chinchonStore.setPlayerWinner()
     }
 

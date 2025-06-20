@@ -19,7 +19,8 @@ class ChinchonStore implements GameInterface {
     
     public setPlayerWinner() {
         if(this.isGameFinished()) {
-            const playerWinner = this.state.players.find((player: IChinchonPlayer) => !player.isLoser)
+            let playerWinner = this.state.players.find((player: IChinchonPlayer) => player.madeChinchon)
+            if(!!!playerWinner) playerWinner = this.state.players.find((player: IChinchonPlayer) => !player.isLoser)
             this.state.playerWinner = !!playerWinner ? playerWinner.name : "EMPATE"
     
             this.setHistory()
@@ -28,8 +29,12 @@ class ChinchonStore implements GameInterface {
     
     public isGameFinished() {
         let finished = false
+
+        const playerMadeChinchon = this.state.players.some((player: IChinchonPlayer) => player.madeChinchon)
+        if(!!playerMadeChinchon) return true
+
         const playersInGame = this.state.players.filter((player: IChinchonPlayer) => !player.isLoser)
-        if(playersInGame.length <= 1) finished = true
+        if(playersInGame.length <= 1) return true
     
         return finished
     }

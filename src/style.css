@@ -193,7 +193,7 @@ svg {
 }
 
 .game {
-	height: calc(100dvh - var(--header-height));
+	min-height: calc(100dvh - var(--header-height));
 	display: flex;
 	overflow-x: auto;
 }
@@ -257,6 +257,7 @@ svg {
 	background-color: #fff !important;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
 	gap: 6px;
 	padding: 6px;
 	height: 8rem !important;
@@ -284,10 +285,7 @@ svg {
 		background: linear-gradient(to bottom, var(--main-color) 0%, var(--second-color) 100%);
 		color: #fff;
 		border-radius: 6px;
-	}
-
-	button + button {
-		grid-column: span 2;
+		font-size: 1.4rem;
 	}
 }
 

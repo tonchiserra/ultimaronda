@@ -10,6 +10,8 @@
     </Header>
 
     <div class="game">
+        <ScrollWarning :columns="players.length" />
+
         <div class="column default-column">
             <div class="block"><p>Jugador</p></div>
             <div class="block"><p><Dice :number="1" /></p></div>
@@ -52,6 +54,7 @@
     import Dice from './Dice.vue'
     import WinnerPopup from '../shared/WinnerPopup.vue'
     import generalaStore from './GeneralaStore'
+    import ScrollWarning from '../shared/ScrollWarning.vue'
 
     const players = generalaStore.state.players
 </script>
